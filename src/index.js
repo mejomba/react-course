@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function Gretting() {
-  return <h2>hello React</h2>;
+// CSS
+import './index.css';
+
+// custome import
+import {books} from './books'
+import Book from './Book'
+
+function Wraper() {
+  return (
+    <section className="book-wraper">
+      {books.map((book, index) => {
+        return <Book key={book.id} {...book}></Book>;
+      })}
+    </section>
+  );
 }
 
+
 ReactDOM.render(
-  <Gretting />,
+  <Wraper />,
   document.getElementById('root')
 );
 
